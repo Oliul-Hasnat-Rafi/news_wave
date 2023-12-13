@@ -34,50 +34,56 @@ class _ShowCategoryState extends State<ShowCategory> {
         ),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 10.0),
-          child: ListView.builder(
-              shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
-              itemCount: catarticles.Categorydata!.articles!.length,
-              itemBuilder: (context, index) {
-                return catarticles.Categorydata!.articles!.length == 0
-                    ? CircularProgressIndicator()
-                    : Container(
-                        child: Column(
-                          children: [
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.network(
-                                    catarticles.Categorydata!.articles![index]
-                                        .urlToImage
-                                        .toString(),
-                                    width: MediaQuery.of(context).size.width,
-                                    height: 200,
-                                    fit: BoxFit.cover)),
-                            SizedBox(
-                              height: 5.0,
-                            ),
-                            Text(
-                              catarticles.Categorydata!.articles![index].title
-                                  .toString(),
-                              maxLines: 2,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              catarticles
-                                  .Categorydata!.articles![index].description
-                                  .toString(),
-                              maxLines: 3,
-                            ),
-                            SizedBox(
-                              height: 20.0,
-                            ),
-                          ],
-                        ),
-                      );
-              }),
+          child: Expanded(
+            child: ListView.builder(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                itemCount: catarticles.Categorydata!.articles!.length,
+                itemBuilder: (context, index) {
+                  if (catarticles.Categorydata!.articles!.length == 0) {
+                    return CircularProgressIndicator();
+                  } else {
+                    return Container(
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(
+                                  // catarticles.Categorydata!.articles![index]
+                                  //     .urlToImage
+                                  //     .toString(),
+                                  'https://upload.wikimedia.org/wikipedia/commons/8/87/Red_sunset.jpg',
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 200,
+                                  fit: BoxFit.cover)),
+                          SizedBox(
+                            height: 5.0,
+                          ),
+                          // Text(
+                          //   catarticles
+                          //       .catarticleslist[0].articles![index].title
+                          //       .toString(),
+                          //   maxLines: 2,
+                          //   style: TextStyle(
+                          //       color: Colors.black,
+                          //       fontSize: 18.0,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
+                          // Text(
+                          // catarticles
+                          //     .catarticleslist[0].articles![index].description
+                          //     .toString(),
+                          //maxLines: 3,
+                          //),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                }),
+          ),
         ));
   }
 }
