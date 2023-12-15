@@ -110,6 +110,79 @@ class _HomeState extends State<Home> {
                       );
                     }),
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Breaking News!",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      // Navigator.push(context, MaterialPageRoute(builder: (context)=> AllNews(news: "Breaking")));
+                    },
+                    child: Text(
+                      "View All",
+                      style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          decorationColor: Colors.blue,
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16.0),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(20),
+              child: Row(
+                children: [
+                  ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset('images/building.jpg',
+                          width: 150, height: 150, fit: BoxFit.cover)),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          // catarticles
+                          //     .catarticleslist[0].articles![index].title
+                          //     .toString(),
+                          'Title',
+                          maxLines: 2,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          // catarticles
+                          //     .catarticleslist[0].articles![index].title
+                          //     .toString(),
+                          'Des',
+                          maxLines: 3,
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),
