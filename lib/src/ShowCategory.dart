@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news_wave/controller/category_controller.dart';
+import 'package:news_wave/src/article_view.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShowCategory extends StatefulWidget {
@@ -83,41 +84,53 @@ class _ShowCategoryState extends State<ShowCategory> {
                       physics: ClampingScrollPhysics(),
                       itemCount: catarticles.Categorydata!.articles!.length,
                       itemBuilder: (context, index) {
-                        return Container(
-                          child: Column(
-                            children: [
-                              ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.network(
-                                      catarticles.Categorydata!.articles![index]
-                                          .urlToImage
-                                          .toString(),
-                                      width: MediaQuery.of(context).size.width,
-                                      height: 200,
-                                      fit: BoxFit.cover)),
-                              SizedBox(
-                                height: 5.0,
-                              ),
-                              Text(
-                                catarticles
-                                    .catarticleslist[0].articles![index].title
-                                    .toString(),
-                                maxLines: 2,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                catarticles
-                                    .Categorydata!.articles![index].description
-                                    .toString(),
-                                maxLines: 3,
-                              ),
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                            ],
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ArticleView(
+                                        blogUrl: catarticles.catarticleslist[0]
+                                            .articles![index].url
+                                            .toString())));
+                          },
+                          child: Container(
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.network(
+                                        catarticles.catarticleslist[0]
+                                            .articles![index].urlToImage
+                                            .toString(),
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        height: 200,
+                                        fit: BoxFit.cover)),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                Text(
+                                  catarticles
+                                      .catarticleslist[0].articles![index].title
+                                      .toString(),
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  catarticles.catarticleslist[0]
+                                      .articles![index].description
+                                      .toString(),
+                                  maxLines: 3,
+                                ),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       }))),
