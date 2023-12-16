@@ -3,4 +3,6 @@ class ApiList {
   static const sliders = 'https://newsapi.org/v2/everything?domains=wsj.com';
   static const categorydata =
       'https://newsapi.org/v2/top-headlines?country=us&category=';
+  static const Search = 'https://newsapi.org/v2/everything?q=';
+  static const sortby = '&from=2023-11-16&sortBy=publishedAt';
 }
