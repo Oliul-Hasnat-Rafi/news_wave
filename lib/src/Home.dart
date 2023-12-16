@@ -54,6 +54,7 @@ class _HomeState extends State<Home> {
       body: Container(
         color: Colors.amber,
         child: Column(children: [
+          //...................................Search................................
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
@@ -80,6 +81,7 @@ class _HomeState extends State<Home> {
               },
             ),
           ),
+// .......................Slider.............................
           Expanded(
             child: Swiper(
                 itemBuilder: (context, index) {
@@ -104,6 +106,7 @@ class _HomeState extends State<Home> {
                     const SwiperPagination(builder: SwiperPagination.rect),
                 autoplay: true),
           ),
+          // .......................Category item.............................
           Flexible(
             child: Container(
               height: 60,
@@ -170,77 +173,75 @@ class _HomeState extends State<Home> {
           const SizedBox(
             height: 20,
           ),
+
+          // ........................Breaking News............................
           Expanded(
               child: Obx(
             () => Slider.sliderlist.length != 0
-                ? Container(
-                    color: Colors.blue,
-                    child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: Slider.slider!.articles!.length,
-                        itemBuilder: (_, index) {
-                          return Container(
-                            margin: EdgeInsets.all(20),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.network(
-                                    Slider.slider!.articles![index].urlToImage
-                                        .toString(),
-                                    width: 150,
-                                    height: 150,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width:
-                                      10.0, // Add some spacing between the image and text
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          Slider.slider!.articles![index].title
-                                              .toString(),
-                                          maxLines: 2,
-                                          softWrap: true,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: 10.0,
-                                        ),
-                                        Text(
-                                          Slider.slider!.articles![index]
-                                              .description
-                                              .toString(),
-                                          maxLines: 3,
-                                          softWrap: true,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
+                ? ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: Slider.slider!.articles!.length,
+                    itemBuilder: (_, index) {
+                      return Container(
+                        margin: EdgeInsets.all(20),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(
+                                Slider.slider!.articles![index].urlToImage
+                                    .toString(),
+                                width: 150,
+                                height: 150,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          );
-                        }),
-                  )
+                            SizedBox(
+                              width:
+                                  10.0, // Add some spacing between the image and text
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      Slider.slider!.articles![index].title
+                                          .toString(),
+                                      maxLines: 2,
+                                      softWrap: true,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    Text(
+                                      Slider
+                                          .slider!.articles![index].description
+                                          .toString(),
+                                      maxLines: 3,
+                                      softWrap: true,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    })
                 : const CircularProgressIndicator(),
           )),
         ]),
