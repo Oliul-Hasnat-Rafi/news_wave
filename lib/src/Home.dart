@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:news_wave/controller/slider_controller.dart';
 import 'package:news_wave/news_server/news_server.dart';
 import 'package:news_wave/src/ShowCategory.dart';
+import 'package:news_wave/src/article_view.dart';
 import 'package:shimmer/shimmer.dart';
 
 class Home extends StatefulWidget {
@@ -180,62 +181,73 @@ class _HomeState extends State<Home> {
                   scrollDirection: Axis.vertical,
                   itemCount: Slider.slider!.articles!.length,
                   itemBuilder: (_, index) {
-                    return Container(
-                      margin: EdgeInsets.all(20),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                              Slider.slider!.articles![index].urlToImage
-                                      ?.toString() ??
-                                  'https://i.postimg.cc/RhWtHc98/download.png',
-                              width: 150,
-                              height: 150,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    Slider.slider!.articles![index].title
-                                        .toString(),
-                                    maxLines: 2,
-                                    softWrap: true,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 10.0,
-                                  ),
-                                  Text(
-                                    Slider.slider!.articles![index].description
-                                        .toString(),
-                                    maxLines: 3,
-                                    softWrap: true,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                ],
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ArticleView(
+                                    blogUrl: Slider.slider!.articles![index].url
+                                        .toString())));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(20),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(
+                                Slider.slider!.articles![index].urlToImage
+                                        ?.toString() ??
+                                    'https://i.postimg.cc/RhWtHc98/download.png',
+                                width: 150,
+                                height: 150,
+                                fit: BoxFit.cover,
                               ),
                             ),
-                          ),
-                        ],
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      Slider.slider!.articles![index].title
+                                          .toString(),
+                                      maxLines: 2,
+                                      softWrap: true,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    Text(
+                                      Slider
+                                          .slider!.articles![index].description
+                                          .toString(),
+                                      maxLines: 3,
+                                      softWrap: true,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   })
