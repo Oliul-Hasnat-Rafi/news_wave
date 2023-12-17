@@ -44,7 +44,7 @@ class _ShowCategoryState extends State<ShowCategory> {
                       itemCount: catarticles.Categorydata!.articles!.length,
                       itemBuilder: (context, index) {
                         return Shimmer.fromColors(
-                            baseColor: Colors.grey.shade300,
+                            baseColor: Colors.grey.shade700,
                             highlightColor: Colors.grey.shade100,
                             enabled: true,
                             child: SingleChildScrollView(
@@ -53,24 +53,23 @@ class _ShowCategoryState extends State<ShowCategory> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Image.asset('images/building.jpg',
-                                      width: MediaQuery.of(context).size.width,
-                                      height: 200,
-                                      fit: BoxFit.cover),
+                                  Container(
+                                    height: 150,
+                                    width: 150,
+                                    color: Colors.white,
+                                  ),
                                   SizedBox(
                                     height: 5.0,
                                   ),
-                                  Text(
-                                    'Title',
-                                    maxLines: 2,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.bold),
+                                  Container(
+                                    height: 8,
+                                    width: 150,
+                                    color: Colors.white,
                                   ),
-                                  Text(
-                                    'description',
-                                    maxLines: 3,
+                                  Container(
+                                    height: 8,
+                                    width: 150,
+                                    color: Colors.white,
                                   ),
                                   SizedBox(
                                     height: 20.0,

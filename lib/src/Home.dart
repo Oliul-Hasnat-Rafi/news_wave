@@ -60,34 +60,34 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                controller: searchController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  hintText: 'Search',
-                  suffixIcon: searchController.text.isEmpty
-                      ? const Icon(Icons.search)
-                      : GestureDetector(
-                          onTap: () {
-                            searchController.text = "";
-                            _performSearch("");
-                          },
-                          child: Icon(Icons.clear)),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextFormField(
+              controller: searchController,
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
                 ),
-                onChanged: (value) {
-                  _performSearch(value);
-                },
+                hintText: 'Search',
+                suffixIcon: searchController.text.isEmpty
+                    ? const Icon(Icons.search)
+                    : GestureDetector(
+                        onTap: () {
+                          searchController.text = "";
+                          _performSearch("");
+                        },
+                        child: Icon(Icons.clear)),
               ),
+              onChanged: (value) {
+                _performSearch(value);
+              },
             ),
-            Visibility(
+          ),
+          Obx(
+            () => Visibility(
               visible: search.isSearching.value,
               child: Expanded(
                 child: Obx(
@@ -142,7 +142,9 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            Visibility(
+          ),
+          Obx(
+            () => Visibility(
               visible: !search.isSearching.value,
               child: Flexible(
                 flex: 3,
@@ -174,14 +176,14 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            Visibility(
+          ),
+          Obx(
+            () => Visibility(
               visible: !search.isSearching.value,
               child: Flexible(
                 child: Container(
                   height: 60,
                   child: ListView.builder(
-                    shrinkWrap: true,
-                    physics: const ScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemCount: category.length,
                     itemBuilder: (context, index) {
@@ -213,7 +215,9 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            Visibility(
+          ),
+          Obx(
+            () => Visibility(
               visible: !search.isSearching.value,
               child: Padding(
                 padding: const EdgeInsets.only(left: 10.0, right: 10.0),
@@ -245,7 +249,9 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            Visibility(
+          ),
+          Obx(
+            () => Visibility(
               visible: !search.isSearching.value,
               child: Flexible(
                 flex: 6,
@@ -334,7 +340,7 @@ class _HomeState extends State<Home> {
                           },
                         )
                       : Shimmer.fromColors(
-                          baseColor: Colors.grey.shade300,
+                          baseColor: Colors.grey.shade700,
                           highlightColor: Colors.grey.shade100,
                           enabled: true,
                           child: ListView.builder(
@@ -347,51 +353,35 @@ class _HomeState extends State<Home> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        "images/building.jpg",
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                1.6,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: Container(
+                                          height: 150,
+                                          width: 150,
+                                          color: Colors.white,
+                                        )),
                                     SizedBox(
                                       width: 10.0,
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: EdgeInsets.all(8.0),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              '',
-                                              maxLines: 2,
-                                              softWrap: true,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 18.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                            Container(
+                                              height: 8,
+                                              width: 150,
+                                              color: Colors.white,
                                             ),
                                             SizedBox(
                                               height: 10.0,
                                             ),
-                                            Text(
-                                              '',
-                                              maxLines: 3,
-                                              softWrap: true,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                fontSize: 18.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
+                                            Container(
+                                              height: 8,
+                                              width: 150,
+                                              color: Colors.white,
+                                            )
                                           ],
                                         ),
                                       ),
@@ -405,8 +395,8 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

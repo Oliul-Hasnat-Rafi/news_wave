@@ -11,22 +11,10 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  late final SharedPreferences prefs;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
-    checkinguser();
-  }
-
-  void checkinguser() async {
-    prefs = await SharedPreferences.getInstance();
-    final bool? login = prefs.getBool('login');
-    if (login != false) {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Home()));
-    }
   }
 
   @override
@@ -73,8 +61,9 @@ class _LandingPageState extends State<LandingPage> {
               height: 40.0,
             ),
             GestureDetector(
-              onTap: () async {
-                await prefs.setBool('login', true);
+              onTap: () {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context) => Home()));
               },
               child: Container(
                 width: MediaQuery.of(context).size.width / 1.2,
