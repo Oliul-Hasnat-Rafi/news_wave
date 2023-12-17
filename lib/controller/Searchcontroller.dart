@@ -6,20 +6,21 @@ class Searchcontroller extends GetxController {
   SearchModel? Search;
 
   RxList<SearchModel> Searchlist = <SearchModel>[].obs;
-  RxBool visibity = true.obs;
-  RxBool Searchvisibity = false.obs;
+  RxBool visibility = true.obs;
+
+  RxBool isSearching = false.obs;
 
   GetSearch(String userquery) async {
     if (userquery.isNotEmpty) {
       final results = await Newsserver().getsearchdata(userquery.toString());
       Searchlist.add(results);
-      visibity = false.obs;
-      Searchvisibity = true.obs;
+      visibility.value = false;
+      isSearching.value = true;
       refresh();
     } else {
       userquery = '';
-      Searchvisibity = false.obs;
-      visibity = true.obs;
+      visibility.value = true;
+      isSearching.value = false;
       refresh();
     }
   }

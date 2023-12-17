@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Visibility(
-              visible: search.Searchvisibity.value,
+              visible: search.isSearching.value,
               child: Expanded(
                 child: Obx(
                   () => search.Searchlist.isEmpty
@@ -143,7 +143,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Visibility(
-              visible: search.visibity.value,
+              visible: !search.isSearching.value,
               child: Flexible(
                 flex: 3,
                 child: Swiper(
@@ -175,7 +175,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Visibility(
-              visible: search.visibity.value,
+              visible: !search.isSearching.value,
               child: Flexible(
                 child: Container(
                   height: 60,
@@ -214,7 +214,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Visibility(
-              visible: search.visibity.value,
+              visible: !search.isSearching.value,
               child: Padding(
                 padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                 child: Row(
@@ -246,7 +246,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Visibility(
-              visible: search.visibity.value,
+              visible: !search.isSearching.value,
               child: Flexible(
                 flex: 6,
                 child: Obx(
