@@ -4,5 +4,5 @@ class ApiList {
   static const categorydata =
       'https://newsapi.org/v2/top-headlines?country=us&category=';
   static const Search = 'https://newsapi.org/v2/everything?q=';
-  static const sortby = '&from=2023-11-16&sortBy=publishedAt';
+  static const sortby = '&from=2023-12-14&sortBy=publishedAt';
 }

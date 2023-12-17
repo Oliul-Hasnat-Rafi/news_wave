@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:news_wave/model/Category_dataModel.dart';
-import 'package:news_wave/model/slider_model.dart';
 import 'package:news_wave/news_server/news_server.dart';
 
 class CategoryController extends GetxController {
