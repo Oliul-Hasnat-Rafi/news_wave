@@ -1,16 +1,11 @@
-# news_wave
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h1 align="center" id="title">News Wave</h1>
+<p align="center">
+  <b>Project Screenshots</b>
+  <br><br>
+  <img src="https://i.postimg.cc/zXZSmWbg/Screenshot-20231217-225012.jpg" width="250" height = "500" >
+  <img src="https://i.postimg.cc/yxBdjVxk/Screenshot-20231217-225507.jpg" width="250" height = "500">
+  <img src="https://i.postimg.cc/Wz6DcdCG/Screenshot-20231217-225253.jpg" width="250" height = "500" >
+  <br><br>
+  <img src="https://i.postimg.cc/hthGpZDb/Screenshot-20231217-225205.jpg" width="250" height = "500">
+  <img src="https://i.postimg.cc/DyPGtN39/Screenshot-20231217-225235.jpg" width="250" height = "500">
+</p>
