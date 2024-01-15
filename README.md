@@ -9,3 +9,10 @@
   <img src="https://i.postimg.cc/hthGpZDb/Screenshot-20231217-225205.jpg" width="250" height = "500">
   <img src="https://i.postimg.cc/DyPGtN39/Screenshot-20231217-225235.jpg" width="250" height = "500">
 </p>
+<h2>💻packages used</h2>
+
+*   Dio
+*   Get
+*   shared preferences
+*   flutter swiper view
+*   shimmer
